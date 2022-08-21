@@ -16,7 +16,8 @@ const harry = {
 }
 
 harry.saludar(); // saludo
-// undefined porque forma parte de otro contexto, de la variable 'saludar'
+
+// 'Hola me llamo undefined' porque forma parte de otro contexto, de la variable 'saludar'
 // despues de asignarse al objeto saludar
 const saludar = harry.saludar;
 saludar(); // undefined porque cambiamos el entorno lexico
@@ -74,6 +75,7 @@ const alma = {
 // Call y Apply llaman a la funcion en el momento que las declaramos
 diego.saludar.call(alma, 'mama'); // call: this se convierte en alma
 diego.saludar.apply(diego, ['hijo']); // apply: es basicamente lo mismo pero recibe los parametros como un array
+// call y apply LLAMAN A LA FUNCION en el momento en el que se declaran
 
 // Bind nos permite establecer el contexto 'this' 
 // sin tener que llamar la funcion inmediatamente
@@ -99,7 +101,7 @@ const daniel = {
         function sayTwitter() {
             console.log(`Mi twitter es ${this.twitter}`); //enlazamiento por defecto
         }
-        sayTwitter(); //undefined
+        sayTwitter(); //' Mi twitter es undefined'
 
         const sayTwitter2 = () => console.log(`Mi twitter es ${this.twitter}`); // enlazamiento lexico
         sayTwitter2();
